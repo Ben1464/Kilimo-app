@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kilimo App</title>
   <link rel="stylesheet" href="styles.css">
-  
 </head>
 <body>
   <div class="container">
@@ -28,6 +27,14 @@
       <div class="form-group">
         <input type="file" id="imageInput" class="input-file">
         <button class="btn btn-secondary" onclick="uploadImage()">Upload Image</button>
+      </div>
+    </section>
+
+    <section class="bulk-upload-section">
+      <h2>Bulk Image Upload</h2>
+      <div class="form-group">
+        <input type="file" id="bulkImageInput" class="input-file" multiple>
+        <button class="btn btn-secondary" onclick="uploadBulkImages()">Upload Images</button>
       </div>
     </section>
 
