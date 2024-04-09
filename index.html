@@ -23,7 +23,7 @@
     </section>
 
     <section class="upload-section">
-      <h2>Upload Image</h2>
+      <h2>Add Images</h2>
       <div class="form-group">
         <input type="file" id="imageInput" class="input-file">
         <button class="btn btn-secondary" onclick="uploadImage()">Upload Image</button>
@@ -31,15 +31,16 @@
     </section>
 
     <section class="bulk-upload-section">
-      <h2>Bulk Image Upload</h2>
+      <h2>Image upload for bulk sending</h2>
       <div class="form-group">
         <input type="file" id="bulkImageInput" class="input-file" multiple>
         <button class="btn btn-secondary" onclick="uploadBulkImages()">Upload Images</button>
+        <button class="btn btn-secondary" onclick="clearBulkUpload()">Send Selected Image</button>
       </div>
     </section>
 
     <section class="images-section">
-      <h2>Added Images</h2>
+      <h2>Added Image</h2>
       <div id="imageList" class="image-list">
         <!-- Display added images here -->
       </div>

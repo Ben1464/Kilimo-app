@@ -70,3 +70,8 @@ function addCustomer() {
     });
   }
   
+  function clearBulkUpload() {
+    const fileInput = document.getElementById('bulkImageInput');
+    fileInput.value = ''; // Clear the file input value
+  }
+  
