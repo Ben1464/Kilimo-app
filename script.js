@@ -1,77 +1,138 @@
-function addCustomer() {
-    const name = document.getElementById('name').value;
-    const phoneNumber = document.getElementById('phoneNumber').value;
-  
-    // Send a POST request to add customer
-    fetch('/api/customers', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ name, phoneNumber })
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error adding customer');
-      }
-      console.log('Customer added successfully');
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  }
-  
-  function uploadImage() {
+function uploadImage() {
     const fileInput = document.getElementById('imageInput');
     const image = fileInput.files[0];
     const formData = new FormData();
     formData.append('image', image);
-  
+
     // Send a POST request to upload image
     fetch('/api/images', {
-      method: 'POST',
-      body: formData
+        method: 'POST',
+        body: formData
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error uploading image');
-      }
-      console.log('Image uploaded successfully');
-      // Add logic to display uploaded images
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error uploading image');
+            }
+            console.log('Image uploaded successfully');
+            // Reload images after upload
+            displayUploadedImages();
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+function displayUploadedImages() {
+    // Fetch and display uploaded images
+    fetch('/api/images')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error fetching images');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const imageList = document.getElementById('imageList');
+            imageList.innerHTML = ''; // Clear previous entries
+
+            data.forEach(image => {
+                const imageButton = document.createElement('button');
+                imageButton.classList.add('btn', 'btn-secondary', 'image-item');
+                const img = document.createElement('img');
+                img.src = image.url; // Assuming each image object has a 'url' property
+                img.alt = 'Image';
+                img.classList.add('uploaded-image');
+                imageButton.appendChild(img);
+
+                // Add click event listener to open image in a new window
+                imageButton.addEventListener('click', function() {
+                    window.open(image.url, '_blank');
+                });
+
+                imageList.appendChild(imageButton);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+function viewAllImages() {
+    // Fetch and display uploaded images
+    fetch('/api/images')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error fetching images');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Create a gallery view for all images
+            const galleryView = document.createElement('div');
+            galleryView.classList.add('gallery-view');
+
+            data.forEach(image => {
+                const img = document.createElement('img');
+                img.src = image.url; // Assuming each image object has a 'url' property
+                img.alt = 'Image';
+                img.classList.add('uploaded-image');
+                galleryView.appendChild(img);
+            });
+
+            // Display gallery view in a modal or new page
+            // For example, you can use a lightbox library like Fancybox or build a custom modal
+            // Here, I'll just append the gallery view to the body
+            document.body.appendChild(galleryView);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+function addCustomer() {
+    const name = document.getElementById('name').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+
+    // Send a POST request to add customer
+    fetch('/api/customers', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, phoneNumber })
     })
-    .catch(error => {
-      console.error(error);
-    });
-  }
-  
-  function uploadBulkImages() {
-    const fileInput = document.getElementById('bulkImageInput');
-    const images = fileInput.files;
-    const formData = new FormData();
-    
-    for (let i = 0; i < images.length; i++) {
-      formData.append('images[]', images[i]);
-    }
-    
-    // Send a POST request to upload images in bulk
-    fetch('/api/bulk/images', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error uploading images');
-      }
-      console.log('Images uploaded successfully');
-      // Add logic to display uploaded images
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  }
-  
-  function clearBulkUpload() {
-    const fileInput = document.getElementById('bulkImageInput');
-    fileInput.value = ''; // Clear the file input value
-  }
-  
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error adding customer');
+            }
+            console.log('Customer added successfully');
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+function viewCustomers() {
+    // Fetch the list of added customers
+    fetch('/api/customers')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error fetching customers');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Display the list of customers
+            const customerList = document.getElementById('customerList');
+            customerList.innerHTML = ''; // Clear previous entries
+
+            data.forEach(customer => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Name: ${customer.name}, Phone Number: ${customer.phoneNumber}`;
+                customerList.appendChild(listItem);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}

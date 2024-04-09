@@ -20,6 +20,7 @@
         <input type="text" id="phoneNumber" class="input-field" placeholder="Enter Phone Number">
       </div>
       <button class="btn btn-primary" onclick="addCustomer()">Add Customer</button>
+      <button class="btn btn-secondary" onclick="viewCustomers()">View Customers</button>
     </section>
 
     <section class="upload-section">
@@ -30,17 +31,8 @@
       </div>
     </section>
 
-    <section class="bulk-upload-section">
-      <h2>Image upload for bulk sending</h2>
-      <div class="form-group">
-        <input type="file" id="bulkImageInput" class="input-file" multiple>
-        <button class="btn btn-secondary" onclick="uploadBulkImages()">Upload Images</button>
-        <button class="btn btn-secondary" onclick="clearBulkUpload()">Send Selected Image</button>
-      </div>
-    </section>
-
     <section class="images-section">
-      <h2>Added Image</h2>
+      <button id="viewImagesButton" class="btn btn-secondary" onclick="viewAllImages()">View All Images</button>
       <div id="imageList" class="image-list">
         <!-- Display added images here -->
       </div>

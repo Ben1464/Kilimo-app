@@ -59,7 +59,7 @@ body {
   }
   
   .btn-secondary {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background: linear-gradient(to right, #4facfe, #00f2fe);
     color: #fff;
   }
   
@@ -93,4 +93,12 @@ body {
   .image-item img:hover {
     transform: scale(1.05);
   }
-  
+
+  .customer-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .customer-list li {
+    margin-bottom: 10px;
+  }
