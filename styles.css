@@ -1,9 +1,17 @@
-/* styles.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f2f2f2;
+  }
+
+  
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 36px;
   }
   
   .container {
@@ -11,69 +19,71 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-  }
-  
-  .section {
-    margin-bottom: 20px;
+    min-height: 100vh;
+    padding: 20px;
   }
   
   .form-section, .upload-section, .images-section {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
   }
   
   .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
   }
   
   label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   .input-field, .input-file, .btn {
-    padding: 10px;
-    width: calc(100% - 20px);
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
   }
   
   .input-field:focus, .input-file:focus, .btn:focus {
     outline: none;
-    border-color: #007bff;
   }
   
   .btn {
-    background-color: #007bff;
-    color: #fff;
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
   }
   
-  .btn:hover {
-    background-color: #0056b3;
+  .btn-primary {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
   }
   
   .image-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   
   .image-item {
-    margin-right: 10px;
-    margin-bottom: 10px;
+    width: calc(33.33% - 10px);
+    margin-bottom: 20px;
   }
   
   .image-item img {
-    max-width: 150px;
-    max-height: 150px;
-    border-radius: 4px;
+    width: 100%;
+    border-radius: 10px;
   }
   
