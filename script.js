@@ -1,7 +1,4 @@
-function toggleMenu() {
-    var menu = document.querySelector('.nav-links');
-    menu.classList.toggle('active');
-}
+
 function uploadImage() {
     const fileInput = document.getElementById('imageInput');
     const image = fileInput.files[0];
@@ -173,7 +170,10 @@ function sendSelectedImages() {
     });
 }
 
-
+function toggleMenu() {
+    var menu = document.querySelector('.nav-links');
+    menu.classList.toggle('active');
+}
 
 
 
