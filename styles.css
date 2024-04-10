@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #7C7C6C;
+    background-color: #7A6F5C;
 }
 
 .container {
@@ -63,12 +63,12 @@ label {
 }
 
 .btn-primary {
-    background-color: #7A6F5C;
+    background-color: #BD9F50;
     color: #fff;
 }
 
 .btn-secondary {
-    background-color:#7A6F5C;
+    background-color:#BD9F50;
     color: #fff;
 }
 
