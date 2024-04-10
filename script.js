@@ -145,8 +145,27 @@ function viewCustomers() {
 function sendSelectedImages() {
     const selectedImages = document.querySelectorAll('.image-item.selected img');
     const imageUrls = Array.from(selectedImages).map(img => img.src);
+    
+    // Retrieve phone numbers of selected customers
+    const selectedCustomerPhoneNumbers = Array.from(document.querySelectorAll('.image-item.selected'))
+        .map(item => item.dataset.phoneNumber);
 
-    // Here you can implement the logic to send selected images for bulk sending
-    // For demonstration purposes, let's just log the selected image URLs
-    console.log('Selected Images:', imageUrls);
+    // Fetch API endpoint to send images to customers
+    fetch('/api/sendImagesToCustomers', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ phoneNumbers: selectedCustomerPhoneNumbers, imageUrls: imageUrls })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error sending images to customers');
+        }
+        console.log('Images sent to customers successfully');
+    })
+    .catch(error => {
+        console.error(error);
+    });
 }
+
