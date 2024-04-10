@@ -6,6 +6,7 @@
   <title>Kilimo App</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -18,10 +19,10 @@
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="#Add customer">Add customer</a></li>
-                    <li><a href="#View customers">View customers</a></li>
-                    <li><a href="#Upload images">Upload images</a></li>
-                    <li><a href="#View Images">View images</a></li>
+                    <li><a href="#add-customer">Add Customer</a></li>
+                    <li><a href="#view-customers">View Customers</a></li>
+                    <li><a href="#upload-images">Upload Images</a></li>
+                    <li><a href="#view-images">View Images</a></li>
                 </ul>
             </nav>
         </div>
@@ -29,7 +30,7 @@
 </header>
 
 <div class="container">
-    <section class="form-section">
+    <section id="add-customer" class="form-section">
         <div class="logo-container">
             <img src="./images/WhatsApp Image 2024-04-09 at 7.31.19 PM.jpeg" alt="Kilimo Logo">
         </div>
@@ -46,15 +47,15 @@
         <button class="btn btn-secondary" onclick="viewCustomers()">View Customers</button>
     </section>
 
-    <section class="upload-section">
-        <h2>Add Images</h2>
+    <section id="upload-images" class="upload-section">
+        <h2>Upload Images</h2>
         <div class="form-group">
             <input type="file" id="imageInput" class="input-file">
             <button class="btn btn-secondary" onclick="uploadImage()">Upload Image</button>
         </div>
     </section>
 
-    <section class="images-section">
+    <section id="view-images" class="images-section">
         <button id="viewImagesButton" class="btn btn-secondary" onclick="viewAllImages()">View All Images</button>
         <button id="sendSelectedImagesButton" class="btn btn-primary" onclick="sendSelectedImages()">Send Selected Images</button>
         <div id="imageList" class="image-list">
@@ -70,7 +71,7 @@
         <div class="contact-item">
             <ul>
                 <li><a href="https://www.facebook.com/greenlife.co.ke" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                <li><a href=" https://chat.whatsapp.com/KbjboRYTsBY8S8rvjoH3Ku" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="https://chat.whatsapp.com/KbjboRYTsBY8S8rvjoH3Ku" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                 <li><a href="https://x.com/greenlifeagro?t=9GR2TrbuRZfR2mcTCIXbaQ&s=08" target="_blank"><i class="fab fa-twitter"></i></a></li>
             </ul>
         </div>
