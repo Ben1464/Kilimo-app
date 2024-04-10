@@ -3,102 +3,105 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  h1 {
+}
+
+h1 {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
     font-size: 36px;
-  }
-  
-  h2 {
+}
+
+h2 {
     color: #666;
     font-size: 24px;
     margin-bottom: 15px;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 20px;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
-  }
-  
-  .input-field, .input-file {
+}
+
+.input-field, .input-file {
     width: calc(100% - 10px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .btn {
+}
+
+.btn {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    /* text-transform: uppercase; */
     transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .btn-primary {
+}
+
+.btn-primary {
     background: linear-gradient(to right, #4facfe, #00f2fe);
     color: #fff;
-  }
-  
-  .btn-secondary {
+}
+
+.btn-secondary {
     background: linear-gradient(to right, #4facfe, #00f2fe);
     color: #fff;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .images-section {
+}
+
+.images-section {
     margin-top: 40px;
-  }
-  
-  .image-list {
+}
+
+.image-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-  
-  .image-item {
+}
+
+.image-item {
     width: calc(33.33% - 10px);
     margin-bottom: 20px;
-  }
-  
-  .image-item img {
+}
+
+.image-item img {
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
-  }
-  
-  .image-item img:hover {
-    transform: scale(1.05);
-  }
+}
 
-  .customer-list {
+.image-item img:hover {
+    transform: scale(1.05);
+}
+
+.customer-list {
     list-style-type: none;
     padding: 0;
-  }
+}
 
-  .customer-list li {
+.customer-list li {
     margin-bottom: 10px;
-  }
+}
+
+.send{
+    text-align: center;
+}

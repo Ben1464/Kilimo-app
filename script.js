@@ -42,12 +42,17 @@ function displayUploadedImages() {
                 img.src = image.url; // Assuming each image object has a 'url' property
                 img.alt = 'Image';
                 img.classList.add('uploaded-image');
-                imageButton.appendChild(img);
-
-                // Add click event listener to open image in a new window
-                imageButton.addEventListener('click', function() {
-                    window.open(image.url, '_blank');
+                
+                // Add click event listener to select/deselect image
+                img.addEventListener('click', function() {
+                    if (imageButton.classList.contains('selected')) {
+                        imageButton.classList.remove('selected');
+                    } else {
+                        imageButton.classList.add('selected');
+                    }
                 });
+
+                imageButton.appendChild(img);
 
                 imageList.appendChild(imageButton);
             });
@@ -135,4 +140,13 @@ function viewCustomers() {
         .catch(error => {
             console.error(error);
         });
+}
+
+function sendSelectedImages() {
+    const selectedImages = document.querySelectorAll('.image-item.selected img');
+    const imageUrls = Array.from(selectedImages).map(img => img.src);
+
+    // Here you can implement the logic to send selected images for bulk sending
+    // For demonstration purposes, let's just log the selected image URLs
+    console.log('Selected Images:', imageUrls);
 }
