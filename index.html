@@ -8,74 +8,75 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <header>
+<header>
     <div class="container">
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+        <div class="navbar">
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#Add customer">Add customer</a></li>
+                    <li><a href="#View customers">View customers</a></li>
+                    <li><a href="#Upload images">Upload images</a></li>
+                    <li><a href="#View Images">View images</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="nav-links">
-            <ul>
-                <li><a href="#Add customer">Add customer</a></li>
-                <li><a href="#View customers">View customers</a></li>
-                <li><a href="#Upload images">Upload images</a></li>
-                <li><a href="#View Images">View images</a></li>
-
-            </ul>
-        </nav>
     </div>
 </header>
-  <div class="container">
+
+<div class="container">
     <section class="form-section">
-      <div class="logo-container">
-        <img src="./images/WhatsApp Image 2024-04-09 at 7.31.19 PM.jpeg" alt="Kilimo Logo">
-      </div>
-      <h2>Add Customer</h2>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" class="input-field" placeholder="Enter Name">
-      </div>
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" class="input-field" placeholder="Enter Phone Number">
-      </div>
-      <button class="btn btn-primary" onclick="addCustomer()">Add Customer</button>
-      <button class="btn btn-secondary" onclick="viewCustomers()">View Customers</button>
+        <div class="logo-container">
+            <img src="./images/WhatsApp Image 2024-04-09 at 7.31.19 PM.jpeg" alt="Kilimo Logo">
+        </div>
+        <h2>Add Customer</h2>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="input-field" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" class="input-field" placeholder="Enter Phone Number">
+        </div>
+        <button class="btn btn-primary" onclick="addCustomer()">Add Customer</button>
+        <button class="btn btn-secondary" onclick="viewCustomers()">View Customers</button>
     </section>
 
     <section class="upload-section">
-      <h2>Add Images</h2>
-      <div class="form-group">
-        <input type="file" id="imageInput" class="input-file">
-        <button class="btn btn-secondary" onclick="uploadImage()">Upload Image</button>
-      </div>
+        <h2>Add Images</h2>
+        <div class="form-group">
+            <input type="file" id="imageInput" class="input-file">
+            <button class="btn btn-secondary" onclick="uploadImage()">Upload Image</button>
+        </div>
     </section>
 
     <section class="images-section">
-      <button id="viewImagesButton" class="btn btn-secondary" onclick="viewAllImages()">View All Images</button>
-      <button id="sendSelectedImagesButton" class="btn btn-primary" onclick="sendSelectedImages()">Send Selected Images</button>
-      <div id="imageList" class="image-list">
-        <!-- Display added images here -->
-      </div>
+        <button id="viewImagesButton" class="btn btn-secondary" onclick="viewAllImages()">View All Images</button>
+        <button id="sendSelectedImagesButton" class="btn btn-primary" onclick="sendSelectedImages()">Send Selected Images</button>
+        <div id="imageList" class="image-list">
+            <!-- Display added images here -->
+        </div>
     </section>
-  </div>
-  <footer>
-    <div class="container">
-     
-        <p id="footer-date">&copy; 2024 Kilimo App:All Rights Reserved </p>
-        </p>2024 RavenDev</p>
-        <div class="contact-item">
+</div>
 
+<footer>
+    <div class="container">
+        <p id="footer-date">&copy; 2024 Kilimo App:All Rights Reserved </p>
+        <p>2024 RavenDev</p>
+        <div class="contact-item">
             <ul>
-              <li><a href="https://www.facebook.com/greenlife.co.ke" target="_blank"><i class="fab fa-facebook"></i></a></li>
-              <li><a href=" https://chat.whatsapp.com/KbjboRYTsBY8S8rvjoH3Ku" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
-              <li><a href="https://x.com/greenlifeagro?t=9GR2TrbuRZfR2mcTCIXbaQ&s=08" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/greenlife.co.ke" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href=" https://chat.whatsapp.com/KbjboRYTsBY8S8rvjoH3Ku" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="https://x.com/greenlifeagro?t=9GR2TrbuRZfR2mcTCIXbaQ&s=08" target="_blank"><i class="fab fa-twitter"></i></a></li>
             </ul>
         </div>
     </div>
 </footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

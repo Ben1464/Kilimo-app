@@ -1,111 +1,3 @@
-/* Header Styles */
-header {
-    background-color: #BD9F50;
-    color: #fff;
-    padding: 15px 0;
-}
-
-.container header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.hamburger-menu {
-    display: none; /* Hide the hamburger menu on larger screens */
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-links ul li {
-    margin-right: 20px;
-}
-
-.nav-links ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.nav-links ul li a:hover {
-    color: #ccc;
-}
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-    display: block; /* Show the hamburger menu on smaller screens */
-    cursor: pointer;
-}
-
-.line {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px;
-    transition: transform 0.3s ease;
-}
-
-.active .line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.active .line:nth-child(2) {
-    opacity: 0;
-}
-
-.active .line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Nav Links Styles */
-.nav-links {
-    display: none; /* Hide the nav links by default */
-}
-
-.nav-links.active {
-    display: flex; /* Show the nav links when active class is present */
-    flex-direction: column; /* Stack the nav links vertically */
-    position: absolute; /* Position the nav links absolutely */
-    top: 100%; /* Position below the header */
-    left: 0; /* Align with the left edge of the header */
-    background-color: #BD9F50; /* Match the header background color */
-    width: 100%; /* Occupy full width */
-    z-index: 1000; /* Ensure the menu appears on top of other content */
-}
-
-.nav-links.active ul {
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links.active ul li {
-    margin: 10px 0;
-}
-
-.nav-links.active ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px; /* Add padding to the links for better clickability */
-    display: block; /* Make links fill the width of the menu */
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
-}
-
-.nav-links.active ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Highlight on hover */
-}
-
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -240,6 +132,76 @@ label {
 
 .logo-container img:hover {
     transform: scale(1.1); /* Enlarge on hover */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .nav-links {
+    display: none;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: block; /* Show the hamburger menu on smaller screens */
+    cursor: pointer;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: transform 0.3s ease;
+}
+
+.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Nav Links Styles */
+.nav-links.active {
+    display: block; /* Show the nav links when active class is present */
+    position: absolute; /* Position the nav links absolutely */
+    top: 100%; /* Position below the header */
+    left: 0; /* Align with the left edge of the header */
+    background-color: #BD9F50; /* Match the header background color */
+    width: 100%; /* Occupy full width */
+    z-index: 1000; /* Ensure the menu appears on top of other content */
+}
+
+.nav-links.active ul {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links.active ul li {
+    margin: 10px 0;
+}
+
+.nav-links.active ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px; /* Add padding to the links for better clickability */
+    display: block; /* Make links fill the width of the menu */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.nav-links.active ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight on hover */
 }
 
 /* Additional Styles */
