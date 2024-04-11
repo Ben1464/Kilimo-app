@@ -2,7 +2,7 @@
 body {
     font-family: 'Roboto', sans-serif; /* Futuristic font */
     line-height: 1.6;
-    background-color: #7C7C6C; /* Darker background color */
+    background-color: #7A6F5C; /* Darker background color */
     color: #C5C6C7; /* Light text color */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
@@ -45,7 +45,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 1px;
+    margin-right: 0px;
 }
 
 nav ul li:last-child {
