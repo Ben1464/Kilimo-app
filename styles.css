@@ -28,7 +28,7 @@ h1 {
 }
 
 h2 {
-    color: #62CF4F; /* Accent color for headers */
+    color: black; /* Accent color for headers */
 }
 
 /* Navbar Styles */
@@ -57,7 +57,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 5px 10px;
+    padding: 2px 5px;
     border-radius: 5px;
     transition: color 0.3s ease; /* Smooth transition for color */
     font-size: 1.0rem; /* Adjust font size */
