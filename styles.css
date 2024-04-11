@@ -2,8 +2,8 @@
 body {
     font-family: 'Roboto', sans-serif; /* Futuristic font */
     line-height: 1.6;
-    background-color: #7A6F5C; /* Darker background color */
-    color: #C5C6C7; /* Light text color */
+    background-color: #b0e2bb; /* Darker background color */
+    color: black; /* Light text color */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     box-sizing: border-box; /* Ensure proper box sizing */
@@ -33,7 +33,7 @@ h2 {
 
 /* Navbar Styles */
 header {
-    background: #BD9F50; /* Three-color gradient background */
+    background:linear-gradient(135deg, #3BD045, #f5f5f5, #EF1105); /* Three-color gradient background */ #f5f5f5, #EF1105); /* Three-color gradient background */ /* Three-color gradient background */
     color: #fff; /* Header text color */
     padding: 10px 0;
 }
@@ -130,13 +130,13 @@ label {
 }
 
 .btn-primary {
-    background-color: #BD9F50;
-    color: #fff;
+    background-color:linear-gradient(135deg, #3BD045, #f5f5f5, #EF1105); /* Three-color gradient background */
+    color: black;
 }
 
 .btn-secondary {
-    background-color: #BD9F50;
-    color: #fff;
+    background-color:linear-gradient(135deg, #3BD045, #f5f5f5, #EF1105); /* Three-color gradient background */
+    color: black;
 }
 
 .btn:hover {
@@ -203,8 +203,8 @@ label {
 
 /* Footer Styles */
 footer {
-    background-color: #BD9F50;
-    color: #fff;
+    background-color:#EF1105 /* Three-color gradient background */; /* Three-color gradient background */
+    color: black;
     padding: 5x 0;
     text-align: center;
 }
