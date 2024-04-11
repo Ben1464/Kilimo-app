@@ -61,7 +61,7 @@ nav ul li a {
     border-radius: 24px;
     transition: color 0.3s ease; /* Smooth transition for color */
     font-size: 1.0rem; /* Adjust font size */
-    background-color: #d4ac66;
+    /* background-color: #d4ac66; */
 }
 
 nav ul li a:hover {
