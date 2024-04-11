@@ -1,32 +1,98 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #7A6F5C;
+    font-family: 'Roboto', sans-serif; /* Futuristic font */
+    line-height: 1.6;
+    background-color: #1F2833; /* Darker background color */
+    color: #C5C6C7; /* Light text color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Ensure proper box sizing */
 }
 
 .container {
-    max-width: 100%;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 0 20px;
+    box-sizing: border-box; /* Ensure proper box sizing */
 }
 
 /* Typography */
 h1, h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 1.5rem; /* Larger font size for headers */
 }
 
 h1 {
-    font-size: 2rem;
-    color:black;
+    color: #fff; /* Header text color */
 }
 
 h2 {
-    font-size: 1.5rem;
-    color: black;
+    color: #62CF4F; /* Accent color for headers */
+}
+
+/* Navbar Styles */
+header {
+    background: #BD9F50; /* Three-color gradient background */
+    color: #fff; /* Header text color */
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    border-radius: 20%;
+}
+
+nav ul li {
+    margin-right: 3px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: black; /* Navigation link color */
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: color 0.3s ease; /* Smooth transition for color */
+    font-size: 1.0rem; /* Adjust font size */
+}
+
+nav ul li a:hover {
+    color: #fff; /* Change text color on hover */
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none; /* Initially hide the hamburger menu */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Adjust the hamburger menu icon appearance when clicked */
+.hamburger-menu.active .line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .line:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Form Styles */
@@ -68,7 +134,7 @@ label {
 }
 
 .btn-secondary {
-    background-color:#BD9F50;
+    background-color: #BD9F50;
     color: #fff;
 }
 
@@ -134,74 +200,40 @@ label {
     transform: scale(1.1); /* Enlarge on hover */
 }
 
-/* Navbar Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .nav-links {
-    display: none;
-}
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-    display: block; /* Show the hamburger menu on smaller screens */
-    cursor: pointer;
-}
-
-.line {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px;
-    transition: transform 0.3s ease;
-}
-
-.active .line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.active .line:nth-child(2) {
-    opacity: 0;
-}
-
-.active .line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Nav Links Styles */
-.nav-links.active {
-    display: block; /* Show the nav links when active class is present */
-    position: absolute; /* Position the nav links absolutely */
-    top: 100%; /* Position below the header */
-    left: 0; /* Align with the left edge of the header */
-    background-color: #BD9F50; /* Match the header background color */
-    width: 100%; /* Occupy full width */
-    z-index: 1000; /* Ensure the menu appears on top of other content */
-}
-
-.nav-links.active ul {
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links.active ul li {
-    margin: 10px 0;
-}
-
-.nav-links.active ul li a {
+/* Footer Styles */
+footer {
+    background-color: #BD9F50;
     color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px; /* Add padding to the links for better clickability */
-    display: block; /* Make links fill the width of the menu */
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    padding: 5x 0;
+    text-align: center;
 }
 
-.nav-links.active ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Highlight on hover */
+.container footer {
+    margin-top: 10px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+.contact-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-item ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.contact-item ul li a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.contact-item ul li a:hover {
+    color: #ccc;
 }
 
 /* Additional Styles */
@@ -240,40 +272,4 @@ label {
     .image-item {
         width: 100%;
     }
-}
-
-/* Footer Styles */
-footer {
-    background-color: #BD9F50;
-    color: #fff;
-    padding: 5x 0;
-    text-align: center;
-}
-
-.container footer {
-    margin-top: 10px;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-.contact-item ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact-item ul li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.contact-item ul li a {
-    color: #fff;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.contact-item ul li a:hover {
-    color: #ccc;
 }
