@@ -353,7 +353,7 @@ footer p {
     background-color: #ddd;
 }
 #customerTable button {
-    width: 40%;
+    width: 100%;
     background-color:greenyellow;
     border-radius: 5px;
 }
