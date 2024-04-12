@@ -37,7 +37,7 @@ function displayUploadedImages() {
     const imageList = document.getElementById('imageList');
     imageList.innerHTML = ''; 
     // Fetch and display uploaded images
-    fetch('http://localhost:3000/viewImages')
+    fetch('`https://kilimoappke.onrender.com/viewImages')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error fetching images');
@@ -141,7 +141,7 @@ function addCustomer() {
 
 function viewCustomers() {
     // Fetch the list of added customers
-    fetch('http://localhost:3000/viewCustomers')
+    fetch('`https://kilimoappke.onrender.com/viewCustomers')
       .then(response => {
         if (!response.ok) {
           throw new Error('Error fetching customers');
@@ -226,7 +226,7 @@ function viewCustomers() {
   function editCustomer(existing_phone, phone, name) {
     if (confirm("Do you want to edit customer details?")) {
   
-      const url = `http://localhost:3000/editCustomer`; 
+      const url = ``https://kilimoappke.onrender.com/editCustomer`; 
   
       const requestBody = JSON.stringify({
         existing_phone,
@@ -263,7 +263,7 @@ function viewCustomers() {
 function deleteCustomer(customer_number){
     const result = window.confirm(`Do you want to continue?`);
     if (result) {
-        fetch(`http://localhost:3000/deleteCustomer?customer_phone=${customer_number}`, {
+        fetch(``https://kilimoappke.onrender.com/deleteCustomer?customer_phone=${customer_number}`, {
             method: 'DELETE'
         })
        .then(response => response.json())
@@ -282,7 +282,7 @@ function deleteImage(image_name){
     alert('Image ' + image_name )   
     const result = window.confirm("Do you want to continue?");
     if (result) {
-        fetch(`http://localhost:3000/deleteImage?imageName=${image_name}`, {
+        fetch(``https://kilimoappke.onrender.com/deleteImage?imageName=${image_name}`, {
             method: 'DELETE'
         })
        .then(response => response.json())
