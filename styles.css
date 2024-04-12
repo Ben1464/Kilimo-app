@@ -186,7 +186,7 @@ label {
 .image-item button{
     width: 50%;
     font-size: 1.2rem;
-    background-color: #e2beb0;
+    background-color: rgb(61, 236, 61);
     border-radius: 10px;
 }
 
