@@ -1,4 +1,12 @@
 /* Global Styles */
+.selected{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40vw;
+}
+
+
 body {
     font-family: 'Roboto', sans-serif; /* Futuristic font */
     line-height: 1.6;
@@ -152,19 +160,34 @@ label {
 .image-list {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: space-between;
 }
 
 .image-item {
-    width: calc(33.33% - 10px);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 40vw; */
+    /* background-color: #e2beb0; */
     margin-bottom: 20px;
+    gap: 10px;
+    box-shadow: 0, 04px 5px 05px rgba(12, 11, 11, 0.6)
 }
 
 .image-item img {
-    width: 100%;
+    width: 300px;
+    height: 80%;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5); */
     transition: transform 0.2s ease;
+}
+.image-item button{
+    width: 50%;
+    font-size: 1.2rem;
+    background-color: #e2beb0;
+    border-radius: 10px;
 }
 
 .image-item img:hover {
@@ -203,7 +226,7 @@ label {
 
 /* Footer Styles */
 footer {
-    background-color:#ff6f68 /* Three-color gradient background */; /* Three-color gradient background */
+    background-color:#EF1105 /* Three-color gradient background */; /* Three-color gradient background */
     color: black;
     padding: 5x 0;
     text-align: center;
@@ -304,4 +327,33 @@ footer p {
     .hamburger-menu.active .line:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
+}
+#customerTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#customerTable th,
+#customerTable td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#customerTable th {
+    background-color: #f2f2f2;
+}
+
+#customerTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customerTable tr:hover {
+    background-color: #ddd;
+}
+#customerTable button {
+    width: 40%;
+    background-color: #e2beb0;
+    border-radius: 10px;
 }
