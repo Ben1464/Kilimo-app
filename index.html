@@ -35,31 +35,40 @@
             <img src="./images/WhatsApp Image 2024-04-09 at 7.31.19 PM.jpeg" alt="Kilimo Logo">
         </div>
         <h2>Add Customer</h2>
+        <form onsubmit=" return addCustomer()">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" class="input-field" placeholder="Enter Name">
+            <input type="text" id="name" required class="input-field" placeholder="Enter Name">
         </div>
         <div class="form-group">
             <label for="phoneNumber">Phone Number:</label>
-            <input type="text" id="phoneNumber" class="input-field" placeholder="Enter Phone Number">
+            <input type="text" id="phoneNumber" required class="input-field" placeholder="Enter Phone Number">
         </div>
-        <button class="btn btn-primary" onclick="addCustomer()">Add Customer</button>
+        <button class="btn btn-primary" type="submit">Add Customer</button></form>
         <button class="btn btn-secondary" onclick="viewCustomers()">View Customers</button>
     </section>
+<div id="customerList">
+    <table id="customerTable"></table>
 
+</div>
     <section id="upload-images" class="upload-section">
         <h2>Upload Images</h2>
-        <div class="form-group">
-            <input type="file" id="imageInput" class="input-file">
-            <button class="btn btn-secondary" onclick="uploadImage()">Upload Image</button>
-        </div>
+        <form onsubmit="return uploadImage()" class="form-group">
+            <input type="text" id="image_name" required>
+            <input type="file" id="imageInput" required class="input-file">
+            <button class="btn btn-secondary" type="submit">Upload Image</button>
+        </form>
+        
     </section>
 
     <section id="view-images" class="images-section">
-        <button id="viewImagesButton" class="btn btn-secondary" onclick="viewAllImages()">View All Images</button>
-        <button id="sendSelectedImagesButton" class="btn btn-primary" onclick="sendSelectedImages()">Send Selected Images</button>
+        <button id="viewImagesButton" class="btn btn-secondary" onclick="displayUploadedImages()">View All Images</button>
+        <!-- <button id="sendSelectedImagesButton" class="btn btn-primary" onclick="sendSelectedImages()">Send Selected Images</button> -->
         <div id="imageList" class="image-list">
             <!-- Display added images here -->
+
+            
+    <!-- <div id="">eee </div> -->
         </div>
     </section>
 </div>

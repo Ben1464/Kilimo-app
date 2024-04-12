@@ -1,31 +1,43 @@
 
-function uploadImage() {
+async function uploadImage() {
     const fileInput = document.getElementById('imageInput');
+    const image_name = document.getElementById('image_name').value; // Get the value of the input field
+    
     const image = fileInput.files[0];
+    if (!image) {
+        alert('Please select an image to upload');
+        return; // Handle missing image selection
+    }
+
     const formData = new FormData();
     formData.append('image', image);
 
-    // Send a POST request to upload image
-    fetch('/api/images', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error uploading image');
-            }
-            console.log('Image uploaded successfully');
-            // Reload images after upload
-            displayUploadedImages();
-        })
-        .catch(error => {
-            console.error(error);
+    try {
+        
+    alert('Uploading');
+        const response = await fetch(`https://kilimoappke.onrender.com/addImage?image_name=${encodeURIComponent(image_name)}`, {
+            method: 'POST',
+            body: formData
         });
+
+        if (!response.ok) {
+            throw new Error(`Error uploading image: ${response.statusText}`);
+        }
+
+        console.log('Image uploaded successfully');
+        // Reload images after upload or display a success message
+    } catch (error) {
+        console.error('Error uploading image:', error);
+        // Handle upload errors (e.g., display error message to user)
+    }
 }
+
 
 function displayUploadedImages() {
+    const imageList = document.getElementById('imageList');
+    imageList.innerHTML = ''; 
     // Fetch and display uploaded images
-    fetch('/api/images')
+    fetch('https://kilimoappke.onrender.com/viewImages')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error fetching images');
@@ -33,86 +45,89 @@ function displayUploadedImages() {
             return response.json();
         })
         .then(data => {
+            const fragment = document.createDocumentFragment();
+          
+            // Check if data is an array
+            if (!Array.isArray(data)) {
+              console.error("Error: Expected data to be an array of images.");
+              return;
+            }
+          
+            data.forEach(image => {
+              const html = `
+                  <p>Name: ${image.name}</p>
+                  <img src="${image.image}" alt="${image.image_name || image.name}" /> <button onClick="sendImageMessage('${image.name}')">Send</button>
+                  <button> Delete </button>
+              `;
+          
+              // Create actual DOM elements from the HTML string
+              const imageItem = document.createElement('div');
+              imageItem.classList.add('image-item');
+              imageItem.innerHTML = html;
+          
+              fragment.appendChild(imageItem);
+            });
+          
+            // Check if imageList element exists before appending
             const imageList = document.getElementById('imageList');
-            imageList.innerHTML = ''; // Clear previous entries
-
-            data.forEach(image => {
-                const imageButton = document.createElement('button');
-                imageButton.classList.add('btn', 'btn-secondary', 'image-item');
-                const img = document.createElement('img');
-                img.src = image.url; // Assuming each image object has a 'url' property
-                img.alt = 'Image';
-                img.classList.add('uploaded-image');
-                
-                // Add click event listener to select/deselect image
-                img.addEventListener('click', function() {
-                    if (imageButton.classList.contains('selected')) {
-                        imageButton.classList.remove('selected');
-                    } else {
-                        imageButton.classList.add('selected');
-                    }
-                });
-
-                imageButton.appendChild(img);
-
-                imageList.appendChild(imageButton);
-            });
-        })
-        .catch(error => {
-            console.error(error);
-        });
-}
-
-function viewAllImages() {
-    // Fetch and display uploaded images
-    fetch('/api/images')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error fetching images');
+            if (imageList) {
+              imageList.appendChild(fragment);
+            } else {
+              console.warn("Warning: Could not find element with ID 'imageList'.");
             }
-            return response.json();
-        })
-        .then(data => {
-            // Create a gallery view for all images
-            const galleryView = document.createElement('div');
-            galleryView.classList.add('gallery-view');
-
-            data.forEach(image => {
-                const img = document.createElement('img');
-                img.src = image.url; // Assuming each image object has a 'url' property
-                img.alt = 'Image';
-                img.classList.add('uploaded-image');
-                galleryView.appendChild(img);
-            });
-
-            // Display gallery view in a modal or new page
-            // For example, you can use a lightbox library like Fancybox or build a custom modal
-            // Here, I'll just append the gallery view to the body
-            document.body.appendChild(galleryView);
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             console.error(error);
-        });
+          });
+          
 }
-
-function addCustomer() {
-    const name = document.getElementById('name').value;
-    const phoneNumber = document.getElementById('phoneNumber').value;
-
-    // Send a POST request to add customer
-    fetch('/api/customers', {
+function sendImageMessage(imageName){
+    const result = window.confirm("Do you want to continue?");
+if (result) {
+    } else {
+    console.log("User clicked No or closed the dialog. Cancel the action.");
+    return;
+}
+    // alert('sending image message to ' + imageName);
+    fetch(`https://kilimoappke.onrender.com/sendMessage?imageName=${imageName}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, phoneNumber })
+        // body: imageName
+    })
+   .then(response => response.json())
+   .then(data => {
+        console.log(data.message);
+    })
+}
+function addCustomer() {
+    const customer_name = document.getElementById('name').value;
+    const phone_number = document.getElementById('phoneNumber').value;
+
+    // Send a POST request to add customer
+    fetch('https://kilimoappke.onrender.com/addCustomer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ customer_name, phone_number })
     })
         .then(response => {
             if (!response.ok) {
+                console.log("Error adding customer")
                 throw new Error('Error adding customer');
             }
-            console.log('Customer added successfully');
+            return response.json();
+            // console.log('Customer added successfully');
         })
+        .then(data => {
+            alert('Customer added successfully')
+            document.getElementById('name').value =""
+            document.getElementById('phoneNumber').value =""
+        
+            console.log('Customer added successfully:', data.message);
+          })
         .catch(error => {
             console.error(error);
         });
@@ -120,7 +135,7 @@ function addCustomer() {
 
 function viewCustomers() {
     // Fetch the list of added customers
-    fetch('/api/customers')
+    fetch('https://kilimoappke.onrender.com/viewCustomers')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error fetching customers');
@@ -128,52 +143,36 @@ function viewCustomers() {
             return response.json();
         })
         .then(data => {
+            console.log(data.message);
             // Display the list of customers
-            const customerList = document.getElementById('customerList');
-            customerList.innerHTML = ''; // Clear previous entries
-
-            data.forEach(customer => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `Name: ${customer.name}, Phone Number: ${customer.phoneNumber}`;
-                customerList.appendChild(listItem);
+            const customerTable = document.getElementById('customerTable');
+            customerTable.innerHTML = ''; // Clear previous entries
+        
+            // Create table header
+            const tableHeader = document.createElement('tr');
+            tableHeader.innerHTML = '<th>Name</th><th>Phone Number</th> <th>Action</th>';
+            customerTable.appendChild(tableHeader);
+        
+            // Iterate over each customer and add them to the table
+            data.customers.forEach(customer => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${customer.customer_name}</td><td>${customer.phone_number} </td> <td>  <button> Edit </button> <button> delete </button> </td>`;
+                customerTable.appendChild(row);
             });
         })
         .catch(error => {
             console.error(error);
         });
+        ;
 }
 
-function sendSelectedImages() {
-    const selectedImages = document.querySelectorAll('.image-item.selected img');
-    const imageUrls = Array.from(selectedImages).map(img => img.src);
-    
-    // Retrieve phone numbers of selected customers
-    const selectedCustomerPhoneNumbers = Array.from(document.querySelectorAll('.image-item.selected'))
-        .map(item => item.dataset.phoneNumber);
 
-    // Fetch API endpoint to send images to customers
-    fetch('/api/sendImagesToCustomers', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ phoneNumbers: selectedCustomerPhoneNumbers, imageUrls: imageUrls })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error sending images to customers');
-        }
-        console.log('Images sent to customers successfully');
-    })
-    .catch(error => {
-        console.error(error);
-    });
-}
 
 function toggleMenu() {
     var menu = document.querySelector('.nav-links');
     menu.classList.toggle('active');
 }
+
 
 
 
